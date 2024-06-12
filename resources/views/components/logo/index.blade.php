@@ -1,0 +1,1 @@
+<img src="/img/logo.svg" alt="logo Vennx News" {{ $attributes }}/>
