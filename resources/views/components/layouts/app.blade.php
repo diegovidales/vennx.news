@@ -15,20 +15,23 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="h-full">
+    <body class="h-full bg-slate-200">
         <div class="min-h-full">
             <livewire:layouts.navigation-menu />
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
-                        <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $header ?? ''}}</h1>
-                    </div>
-                </header>
-            @endif
-        
             <main>
-                <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                    {{ $slot }}
+                <div class="py-6">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+                            @if (isset($header))
+                                <div class="flex flex-col md:flex-row justify-between gap-2 md:items-center mb-4">
+                                    <div class="flex flex-col gap-1">
+                                    <h1 class="font-semibold text-3xl text-gray-800">{{ $header }}</h1>
+                                    </div>
+                                </div>
+                            @endif
+                            {{ $slot }}
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>

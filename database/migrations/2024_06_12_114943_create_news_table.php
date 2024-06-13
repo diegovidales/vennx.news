@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignIdFor(\App\Models\User::class);
             $table->string('title')->unique();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('image_path')->nullable();
             $table->timestamps();
         });
