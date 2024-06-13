@@ -1,65 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Sobre o projeto
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+O projeto consiste na criação de uma página de listagem de notícias e uma página de cadastro de notícias, com a tela de cadastro protegida por login e senha. Assim, o desenvolvimento será dividido em uma área pública e outra restrita.
 
-## About Laravel
+## Estrutura do banco de dados
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+O banco de dados consiste em uma estrutura simples, com uma tabela de usuários (users) para controlar acesso a criação e edição de notícias, sem um sistema de permissões com hierarquia, e uma tabela de notíticias (news), conforme mostrado na UML abaixo:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+[UML do banco de dados](https://www.figma.com/board/LAdThYHbVbP1W5Ll2EQ8Hp/Vennx-News---UML?node-id=0-1&t=k1YmgZPm9BggVEZK-1)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+O campo de título (title) é obrigatório e único, evitando assim duas notícias cadastradas com o mesmo título. Já o campo de descrição (description) e obrigatório e o caminho da imagem (image_path) é opcional (nullable). 
 
-## Learning Laravel
+## Requisitos do projeto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+O projeto consiste em um sistema de notícias onde: 
+- a visualização das notícias deve ser apresentada em uma página pública, com uma listagem paginada mostrando 6 notícias por página;
+- Os usuários poderão realizar pesquisa pelo título da notícia;
+- Deverá ser implementado um CRUD completo para as notícias, possibilitando a criação, edição e exclusão (apenas para usuários registrados e autenticados no sistema.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Componentes tecnológicos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+O projeto deverá ser desenvolvido utilizando as seguintes ferramentas:
+- Laravel
+- Livewire
+- Tailwind
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Instalação
 
-### Premium Partners
+```sh
+# clone o repositório
+git clone https://github.com/diegovidales/vennx.news.git
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+# entre no diretório do projeto
+cd vennx.news
 
-## Contributing
+# instale as dependências
+composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# configure o arquivo .env
+cp .env.example .env
 
-## Code of Conduct
+# gere uma chave para o projeto
+php artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# entre no mysql (com seu usuário e senha) e crie um banco de dados com o nome vennx_news
+mysql -u username -p password
+CREATE DATABASE vennx_news;
 
-## Security Vulnerabilities
+# execute a migration
+php artisan migrate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# se preferir executar os teste com o banco de dados preenchido com dados fake, utilize a opção --seed ou execute o comando abaixo após a migrate
+php artisan db:seed
+
+# execute o artisan serve
+php artisan serve
+
+```
+
+## Considerações sobre as decisões tomadas no projeto
+- Todos os termos utilizados para nomenclatura no código fonte estão por padrão na língua inglesa para facilitar a integração com equipe de desenvolvedores nativos de outros países. Para textos que são mostrados ao usuário, utilizo o arquivo de tradução do laravel.
+- Optei por utilizar também a data de edição da notícia (timestamp completo do laravel), possibilitando mostrar quando foi a ultima atualização da notícia quando editada.
+- Decidi não utilizar o laravel Breeze ou Jetstream, o que facilitaria a construção da autenticação de usuário, com o intuito de demonstrar a construção da autenticação manual, com maior controle por parte do desenvolvedor.
+- Decidi armazenar as imagens das notícias no sistema de arquivos e armazenar somente o caminho da imagem no banco de dados para evitar armazenar arquivos binários muito grandes diretamente no banco de dados (como uma imagem base64), utilizando desta forma o storage do laravel.
+- O campo de senha do usuário deve ter pelo menos 6 caracteres contendo pelo menos uma letra e um número. Esta decisão foi apenas para mostrar algumas formas de validação de senha.
+- Foi adicionado um filtro simples de data com alguns valores pré-determinados com o intuito de demonstrar algumas técnicas do laravel, como a utilização de Enum, e o filtro simultâneo com múltiplas alterações da $query de filtro. 
+
 
 ## License
 

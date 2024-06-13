@@ -148,8 +148,14 @@
   "Editor users have the ability to read, create, and update.": "O editor pode ler, criar e atualizar",
   "Remove": "Remover",
   "News": "Notícias",
+  "news": "notícias",
   "My News": "Minhas Notícias",
   "Full Name": "Nome Completo",
   "Navigation": "Navegação",
-  "Sorry, email or password invalid": "Desculpe, o email ou senha informado não é válido"
+  "Sorry, email or password invalid": "Desculpe, o email ou senha informado não é válido",
+  "Search": "Buscar",
+  "Result": "Resultado",
+  "Prev": "Anterior",
+  "Next": "Próxima",
+  "Read more": "Saiba mais"
 }

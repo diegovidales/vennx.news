@@ -15,6 +15,11 @@ class News extends Model
         'image_path'    
     ];
 
+    public function getDateAttribute()
+    {
+        return $this->created_at->format('d M Y, H:i');
+    }
+
     /**
      * Get the user that owns the News
      *
