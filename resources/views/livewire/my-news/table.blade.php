@@ -36,11 +36,9 @@
                                     <x-menu.item wire:click="$dispatch('show-update-news-modal', { news: {{ $newsItem }} })">
                                         <x-icon.edit /> {{ __("Edit") }}
                                     </x-menu.item>
-                                    <x-menu.close>
-                                        <x-menu.item>
-                                            <x-icon.delete /> {{ __("Delete") }}
-                                        </x-menu.item>
-                                    </x-menu.close>
+                                    <x-menu.item wire:click="$dispatch('show-delete-news-modal', { news: {{ $newsItem }} })">
+                                        <x-icon.delete /> {{ __("Delete") }}
+                                    </x-menu.item>
                                 </x-menu.items>
                             </x-menu>
                         </x-table.data>
@@ -52,25 +50,5 @@
     </div>
     <x-filter.pagination :paginate="$this->news"></x-table.pagination>
     <livewire:modals.update-news />
-    <x-modal>
-        <div class="flex flex-col gap-6" x-data="{ confirmation: '' }">
-            <h2 class="font-semibold text-3xl">Are you sure you?</h2>
-            <h2 class="text-lg text-slate-700">This operation is permanant and can be reversed. This post will be deleted forever.</h2>
-
-            <label class="flex flex-col gap-2">
-                Type "CONFIRM"
-                <input x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg" placeholder="CONFIRM">
-            </label>
-
-            <x-modal.footer>
-                <x-modal.close>
-                    <button type="button" class="text-center rounded-xl bg-slate-300 text-slate-800 px-6 py-2 font-semibold">Cancel</button>
-                </x-modal.close>
-
-                <x-modal.close>
-                    <button :disabled="confirmation !== 'CONFIRM'" wire:click="$dispatch('deleted')" type="button" class="text-center rounded-xl bg-red-500 text-white px-6 py-2 font-semibold disabled:cursor-not-allowed disabled:opacity-50">Delete</button>
-                </x-modal.close>
-            </x-modal.footer>
-        </div>
-    </x-modal>
+    <livewire:modals.delete-news />
 </div>

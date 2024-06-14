@@ -25,6 +25,12 @@ class NewsForm extends Form
         $this->image_path = $news->image_path;
     }
 
+    public function delete()
+    {
+        $this->removeOldImage();
+        $this->news->delete();
+    }
+
     public function update($image)
     {
         $this->validate();

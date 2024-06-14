@@ -4,6 +4,7 @@ namespace App\Livewire\Modals;
 
 use App\Livewire\Forms\NewsForm;
 use App\Models\News;
+use App\Traits\Modelable;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -11,7 +12,7 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class UpdateNews extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, Modelable;
     
     public $showModal = false;
 
@@ -45,10 +46,9 @@ class UpdateNews extends Component
     }
 
     #[On('show-update-news-modal')]
-    public function openModal(News $news)
+    public function showModal(News $news)
     {
-        $this->news->setNews($news);
-        $this->showModal = true;
+        $this->openModal($news);
     }
 
     public function render()
