@@ -16,7 +16,11 @@
                     <div class="mb-4 max-w-md mx-auto bg-sky-100 shadow-md overflow-hidden md:max-w-2xl border border-gray-200 rounded-lg">
                         <div class="md:flex">
                             <div class="md:flex-shrink-0">
-                                <img class="h-48 w-full object-cover md:w-48" src="{{ $newsItem->image_path }}" alt="Imagem da notícia">
+                                @if( $newsItem->image_path )
+                                    <img class="h-48 w-full object-cover md:w-48" src="{{ $newsItem->image_path }}" alt="Imagem da notícia">
+                                @else
+                                    <img class="h-48 w-full object-cover md:w-48" src="img/no-image.jpg" alt="Imagem da notícia">
+                                @endif    
                             </div>
                             <div class="p-4 flex-1 relative">
                                 <div class="absolute top-0 right-0 mt-4 mr-4 text-xs text-gray-500">{{ $newsItem->date }}</div>

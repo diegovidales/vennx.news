@@ -9,6 +9,9 @@ class News extends Model
 {
     use HasFactory;
     
+    // informa o diretório padrão para salvar as imagens das notícias
+    const IMAGE_DIRECTORY = 'news-image';
+
     protected $fillable = [
         'title',
         'description',

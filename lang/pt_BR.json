@@ -157,5 +157,12 @@
   "Result": "Resultado",
   "Prev": "Anterior",
   "Next": "Próxima",
-  "Read more": "Saiba mais"
+  "Read more": "Saiba mais",
+  "Created at": "Criado em",
+  "Title": "Título",
+  "Description": "Descrição",
+  "Edit": "Editar",
+  "News Image": "Imagem da notícia",
+  "Drag the image here or click to select": "Arraste a imagem aqui ou clique para selecionar",
+  "Delete Image": "Remover Imagem"
 }

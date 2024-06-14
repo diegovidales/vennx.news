@@ -5,10 +5,10 @@ namespace App\Livewire\News;
 use App\Livewire\Forms\Filters;
 use Livewire\Component;
 
-class NewsIndex extends Component
+class Index extends Component
 {
     public function render()
     {
-        return view('livewire.news.news-index');
+        return view('livewire.news.index');
     }
 }

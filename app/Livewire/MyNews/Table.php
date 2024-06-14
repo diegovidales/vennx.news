@@ -4,24 +4,26 @@ namespace App\Livewire\MyNews;
 
 use App\Livewire\Forms\Filters;
 use App\Traits\Searchable;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class MyNewsTable extends Component
+class Table extends Component
 {
     use WithPagination, Searchable;
 
     public Filters $filters;
 
-    public function render()
+    #[Computed]
+    #[On('my-news-update')] //para atualizar sempre que realizar alguma mudança na lista
+    public function news()
     {
         $query = auth()->user()->news();
         $query = $this->applySearch($query);
         if(isset($this->filters)){
             $query = $this->filters->apply($query);
         }
-        return view('livewire.my-news.my-news-table',  [
-            'news' => $query->orderBy('created_at', 'desc')->paginate(10)
-        ]);
+        return $query->orderBy('created_at', 'desc')->paginate(10);
     }
 }

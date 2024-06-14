@@ -9,7 +9,7 @@ use Livewire\Attributes\Reactive;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class NewsList extends Component
+class Table extends Component
 {
     use WithPagination, Searchable;
 
@@ -22,7 +22,7 @@ class NewsList extends Component
         if(isset($this->filters)){
             $query = $this->filters->apply($query);
         }
-        return view('livewire.news.news-list', [
+        return view('livewire.news.table', [
             'news' => $query->orderBy('created_at', 'desc')->paginate(6)
         ]);
     }

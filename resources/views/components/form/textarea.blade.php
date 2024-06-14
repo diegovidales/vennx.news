@@ -1,6 +1,6 @@
-@props(["name" => ''])
+@props(["name"])
 
-<input
+<textarea
     name = {{ $name }}
     {{ $attributes }}
     @class([
@@ -8,4 +8,4 @@
         'border border-slate-300' => $errors->missing($name),
         'border-2 border-red-500' => $errors->has($name),
     ])
->
+>{{ $slot }}</textarea>
