@@ -23,9 +23,4 @@ class DeleteNews extends Component
     {
         $this->openModal($news);
     }
-    
-    public function render()
-    {
-        return view('livewire.modals.delete-news');
-    }
 }

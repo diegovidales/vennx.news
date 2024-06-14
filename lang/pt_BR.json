@@ -168,5 +168,7 @@
   "CONFIRM": "CONFIRMAR",
   "Are you sure?": "Você tem certeza disso?",
   "This operation is permanant and can't be reversed. This news will be deleted forever.": "Esta operação é permanente e não pode ser desfeita. Esta notícia será deletada para sempre.",
-  "Type 'CONFIRM'": "Digite 'CONFIRMAR'"
+  "Type 'CONFIRM'": "Digite 'CONFIRMAR'",
+  "Create News": "Nova Notícia",
+  "Update News": "Atualizar Notícia"
 }

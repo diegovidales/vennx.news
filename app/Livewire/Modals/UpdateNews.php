@@ -14,45 +14,26 @@ class UpdateNews extends Component
 {
     use WithFileUploads, Modelable;
     
-    public $showModal = false;
-
-    public NewsForm $news;
     public $image;
     public $showSuccessIndicator = false;
 
     public function save()
     {
-        $this->news->update($this->image);
+        // se for uma notícia existente, atualiza
+        if($this->news->news->id){
+            $this->news->update($this->image);
+        } else {
+            // caso não existe, cria uma nova
+            $this->news->create($this->image);
+        }      
         $this->image = null;
         $this->showSuccessIndicator = true;
         $this->dispatch('my-news-update'); // envia para a tabela que houve uma mudança
-    }
-
-    public function updatedImage()
-    {
-        if(empty($this->image))
-        {
-            $this->news->image_path = null;
-            return null;
-        }
-        try {
-            $this->validate([
-                'image' => 'image',
-            ]);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            $this->reset('image');
-            $this->news->image_path = null;
-        }
     }
 
     #[On('show-update-news-modal')]
     public function showModal(News $news)
     {
         $this->openModal($news);
-    }
-
-    public function render()
-    {
-        return view('livewire.modals.update-news');
     }
 }

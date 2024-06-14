@@ -21,9 +21,4 @@ class Register extends Component
             $this->redirectRoute('my_news');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.auth.register');
-    }
 }

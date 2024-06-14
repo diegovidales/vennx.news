@@ -8,6 +8,9 @@
         <div class="flex gap-2">
             <x-filter.range :$filters />
         </div>
+        <div class="flex gap-2">
+            <x-form.button wire:click="$dispatch('show-update-news-modal')">{{ __("Create News") }}</x-form.button>
+        </div>
     </div>
     <div class="relative overflow-x-auto mt-4">
         <x-table>
@@ -49,6 +52,4 @@
         <x-misc.loading />
     </div>
     <x-filter.pagination :paginate="$this->news"></x-table.pagination>
-    <livewire:modals.update-news />
-    <livewire:modals.delete-news />
 </div>

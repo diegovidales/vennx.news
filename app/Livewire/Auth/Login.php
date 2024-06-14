@@ -14,9 +14,4 @@ class Login extends Component
         $this->user->login();
         $this->redirectRoute('my_news');
     }
-
-    public function render()
-    {
-        return view('livewire.auth.login');
-    }
 }

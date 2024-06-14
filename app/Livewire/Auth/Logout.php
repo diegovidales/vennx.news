@@ -14,9 +14,4 @@ class Logout extends Component
         Auth::logout();
         $this->redirectRoute('news');
     }
-
-    public function render()
-    {
-        return view('livewire.auth.logout');
-    }
 }
