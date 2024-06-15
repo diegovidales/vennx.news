@@ -55,7 +55,7 @@
                                     {{ __('Manage Account') }}
                                 </div>
 
-                                <x-dropdown.link href="{{ route('news') }}">
+                                <x-dropdown.link href="{{ route('profile') }}">
                                     {{ __('Profile') }}
                                 </x-dropdown.link>
 
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                    <x-layouts.responsive-nav-link href="{{ route('news') }}" :active="request()->routeIs('profile.show')">
+                    <x-layouts.responsive-nav-link href="{{ route('profile') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Profile') }}
                     </x-layouts.responsive-nav-link>
 

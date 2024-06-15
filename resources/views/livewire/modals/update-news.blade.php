@@ -32,7 +32,9 @@
                     </div>
                 </x-form.field>
             </div>
-            <x-form.saved-indicator />
+            <x-form.saved-indicator indicator="showSuccessIndicator">
+                {{ __("Saved news!") }}
+            </x-form.saved-indicator>
             {{-- Footer do modal --}}
             <x-modal.footer>
                 <x-modal.close>

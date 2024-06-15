@@ -61,6 +61,10 @@ npm run dev
 # para executar os testes de autenticação do CRUD
 php artisan test
 
+# usuário e senha criado no db:seed para testes
+usuário: test@example.com
+senha: teste123
+
 ```
 
 ## Considerações sobre as decisões tomadas no projeto
