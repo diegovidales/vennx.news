@@ -23,6 +23,11 @@ class News extends Model
         return $this->created_at->format('d M Y, H:i');
     }
 
+    public function getSmallDateAttribute()
+    {
+        return $this->created_at->format('d M Y');
+    }
+
     /**
      * Get the user that owns the News
      *

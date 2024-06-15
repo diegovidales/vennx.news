@@ -58,6 +58,9 @@ npm install
 # execute o Vite
 npm run dev
 
+# para executar os testes de autenticação do CRUD
+php artisan test
+
 ```
 
 ## Considerações sobre as decisões tomadas no projeto

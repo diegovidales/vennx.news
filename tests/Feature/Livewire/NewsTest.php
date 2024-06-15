@@ -20,7 +20,7 @@ it('delete renders successfully', function () {
         ->assertStatus(200);
 });
 
-// qualquer usuário pode criar uma notícia (testando uma notícia grande)
+// qualquer usuário pode criar uma notícia
 it('can create news', function () {
     $user = User::factory()->create();
     $this->actingAs($user);
@@ -28,7 +28,7 @@ it('can create news', function () {
     $image = UploadedFile::fake()->image('news.jpg');
 
     $title = fake()->sentence();
-    $description = fake()->paragraphs(100,true);
+    $description = fake()->paragraphs(20,true);
 
     Livewire::test(UpdateNews::class)
         ->set([

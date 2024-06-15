@@ -22,16 +22,17 @@
                     <tr>
                         <x-table.heading>{{ __("Created at") }}</x-table.heading>
                         <x-table.heading>{{ __("Title") }}</x-table.heading>
-                        <x-table.heading>{{ __("Description") }}</x-table.heading>
+                        <x-table.heading class="hidden md:table-cell">{{ __("Description") }}</x-table.heading>
                         <x-table.heading></x-table.heading>
                     </tr>
                 </x-table.head>
                 <x-table.body>
                     @foreach($this->news as $newsItem)
                         <tr wire:key="{{ $newsItem->id }}">
-                            <x-table.data>{{ $newsItem->date }}</x-table.data>
+                            <x-table.data class="hidden sm:table-cell">{{ $newsItem->date }}</x-table.data>
+                            <x-table.data class="table-cell sm:hidden">{{ $newsItem->smallDate }}</x-table.data>
                             <x-table.data>{{ Illuminate\Support\Str::of($newsItem->title)->limit(20) }}</x-table.data>
-                            <x-table.data>{{ Illuminate\Support\Str::of($newsItem->description)->limit(50) }}</x-table.data>
+                            <x-table.data class="hidden md:table-cell">{{ Illuminate\Support\Str::of($newsItem->description)->limit(50) }}</x-table.data>
                             <x-table.data>
                                 <x-menu>
                                     <x-menu.button>
