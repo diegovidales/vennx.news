@@ -66,7 +66,8 @@ npm run dev
 - Decidi não utilizar o laravel Breeze ou Jetstream, o que facilitaria a construção da autenticação de usuário, com o intuito de demonstrar a construção da autenticação manual, com maior controle por parte do desenvolvedor.
 - Decidi armazenar as imagens das notícias no sistema de arquivos e armazenar somente o caminho da imagem no banco de dados para evitar armazenar arquivos binários muito grandes diretamente no banco de dados (como uma imagem base64), utilizando desta forma o storage do laravel.
 - O campo de senha do usuário deve ter pelo menos 6 caracteres contendo pelo menos uma letra e um número. Esta decisão foi apenas para mostrar algumas formas de validação de senha.
-- Foi adicionado um filtro simples de data com alguns valores pré-determinados com o intuito de demonstrar algumas técnicas do laravel, como a utilização de Enum, e o filtro simultâneo com múltiplas alterações da $query de filtro. 
+- Foi adicionado um filtro simples de data com alguns valores pré-determinados com o intuito de demonstrar algumas técnicas do laravel, como a utilização de Enum, e o filtro simultâneo com múltiplas alterações da $query de filtro.
+- Decidi não me aprofundar muito nos testes por não ser um projeto que será escalado, fiz apénas testando o CRUD e as permissões para atualizar e deletar (sem testar a validação de campos) apenas com o intuito de demonstrar um pouco do que pode ser feito com testes automatizados utilizando o PEST (Também possível com o PHPUnit)
 
 
 ## License

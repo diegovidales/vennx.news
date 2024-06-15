@@ -29,4 +29,11 @@ class NewsFactory extends Factory
             'updated_at' => $created_at
         ];
     }
+
+    public function user($id)
+    {
+        return $this->state(fn (array $attributes) => [
+            'user_id' => $id
+        ]);
+    }
 }
