@@ -21,9 +21,11 @@ class UpdateNews extends Component
     {
         // se for uma notícia existente, atualiza
         if($this->news->news->id){
+            $this->authorize('update', $this->news->news); 
             $this->news->update($this->image);
         } else {
             // caso não existe, cria uma nova
+            $this->authorize('create', $this->news->news);
             $this->news->create($this->image);
         }      
         $this->image = null;

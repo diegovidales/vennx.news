@@ -14,6 +14,7 @@ class DeleteNews extends Component
 
     public function delete()
     {
+        $this->authorize('delete', $this->news->news); 
         $this->news->delete();
         $this->dispatch('my-news-update'); // envia para a tabela que houve uma mudança
     }
