@@ -43,8 +43,7 @@ cp .env.example .env
 # gere uma chave para o projeto
 php artisan key:generate
 
-# entre no mysql (com seu usuário e senha) e crie um banco de dados com o nome vennx_news
-mysql -u username -p password
+# crie o banco de dados com o nome vennx_news e atualize as credenciais no arquivo .env
 CREATE DATABASE vennx_news;
 
 # execute a migration
@@ -53,8 +52,11 @@ php artisan migrate
 # se preferir executar os teste com o banco de dados preenchido com dados fake, utilize a opção --seed ou execute o comando abaixo após a migrate
 php artisan db:seed
 
-# execute o artisan serve
-php artisan serve
+# instale as dependencias do node
+npm install
+
+# execute o Vite
+npm run dev
 
 ```
 
