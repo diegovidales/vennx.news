@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Livewire\News;
+namespace App\Livewire\Pages;
 
 use App\Livewire\Forms\Filters;
 use App\Models\News;
 use App\Traits\Searchable;
-use Livewire\Attributes\Reactive;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Table extends Component
+class AllNews extends Component
 {
     use WithPagination, Searchable;
 
@@ -22,7 +21,7 @@ class Table extends Component
         if(isset($this->filters)){
             $query = $this->filters->apply($query);
         }
-        return view('livewire.news.table', [
+        return view('livewire.pages.all-news', [
             'news' => $query->orderBy('created_at', 'desc')->paginate(6)
         ]);
     }

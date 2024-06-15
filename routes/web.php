@@ -1,11 +1,10 @@
 <?php
 
 use App\Livewire\Auth\{Login, Register};
-use App\Livewire\MyNews\Index as MyNews;
-use App\Livewire\News\Index as News;
+use App\Livewire\Pages\{MyNews, AllNews};
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', News::class)->name('news');
+Route::get('/', AllNews::class)->name('news');
 
 // Auth
 Route::get('/register', Register::class)->name('register');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\MyNews;
+namespace App\Livewire\Pages;
 
 use App\Livewire\Forms\Filters;
 use App\Traits\Searchable;
@@ -9,7 +9,8 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Table extends Component
+class MyNews
+ extends Component
 {
     use WithPagination, Searchable;
 
