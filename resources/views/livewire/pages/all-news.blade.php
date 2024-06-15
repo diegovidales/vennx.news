@@ -34,7 +34,7 @@
                                         <span class="text-gray-600">{{ __('Author') }}: {{ $newsItem->user->name }}</span>
                                     </div>
                                     <div class="mt-4">
-                                        <a href="#" class="inline-block px-4 py-2 leading-none bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">{{ __("Read more") }}</a>
+                                        <x-form.button wire:click="$dispatch('show-news-modal', { news: {{ $newsItem }} })">{{ __("Read more") }}</x-form.button>
                                     </div>
                                 </div>
                             </div>
@@ -46,4 +46,5 @@
         </div>
         <x-filter.pagination :paginate="$news"></x-table.pagination>
     </div>
+    <livewire:modals.show-news lazy/>
 </div>
