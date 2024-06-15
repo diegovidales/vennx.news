@@ -8,7 +8,7 @@ O banco de dados consiste em uma estrutura simples, com uma tabela de usuários 
 
 [UML do banco de dados](https://www.figma.com/board/LAdThYHbVbP1W5Ll2EQ8Hp/Vennx-News---UML?node-id=0-1&t=k1YmgZPm9BggVEZK-1)
 
-O campo de título (title) é obrigatório e único, evitando assim duas notícias cadastradas com o mesmo título. Já o campo de descrição (description) e obrigatório e o caminho da imagem (image_path) é opcional (nullable). 
+O campo de título (title) é obrigatório e único, evitando assim duas notícias cadastradas com o mesmo título. Já o campo de descrição (description) é obrigatório e o caminho da imagem (image_path) é opcional (nullable). 
 
 ## Requisitos do projeto
 

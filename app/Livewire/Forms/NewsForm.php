@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Models\News;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -12,7 +13,6 @@ class NewsForm extends Form
     //
     public ?News $news;
 
-    #[Validate('required')] 
     public $title;
     public $description;
     public $image_path;
@@ -27,7 +27,9 @@ class NewsForm extends Form
 
     public function create($image)
     {
-        $this->validate();
+        $this->validate([
+            'title' => ['required', 'unique:news']
+        ]);
          // salva nova imagem, se houver
          if($image) {
             // salva nova imagem e o caminho dela
@@ -48,7 +50,9 @@ class NewsForm extends Form
 
     public function update($image)
     {
-        $this->validate();
+        $this->validate([
+            'title' => ['required', Rule::unique('news')->ignore($this->news->id)]
+        ]);
         // salva nova imagem, se houver
         if($image) {
             // remove imagem anterior (se houver)

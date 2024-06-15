@@ -14,6 +14,7 @@ trait Modelable
 
     public function openModal(News $news)
     {
+        $this->resetValidation();
         $this->news->setNews($news);
         $this->showModal = true;
     }
