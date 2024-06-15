@@ -16,6 +16,11 @@ class AllNews extends Component
 
     public function render()
     {
+        if(News::all()->count() === 0) {
+            return view('livewire.pages.all-news', [
+                'news' => News::paginate(6)
+            ]);
+        }
         $query = News::all()->toQuery();
         $query = $this->applySearch($query);
         if(isset($this->filters)){
