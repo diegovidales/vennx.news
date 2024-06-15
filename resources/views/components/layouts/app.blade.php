@@ -22,7 +22,7 @@
     </head>
     <body class="h-full bg-slate-200">
         <div class="min-h-full">
-            <livewire:layouts.navigation-menu />
+            <x-layouts.navigation-menu />
             <main>
                 <div class="py-6">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
